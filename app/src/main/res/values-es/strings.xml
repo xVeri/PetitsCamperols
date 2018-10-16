@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PetitsCamperols</string>
+    <string name="btnJugar">Jugar</string>
+    <string name="btnAjustaments">Ajustes</string>
+    <string name="btnRanquing">Ranking</string>
+    <string name="btnQuant">Sobre...</string>
+</resources>
