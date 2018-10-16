@@ -3,4 +3,5 @@
     <string name="btnJugar">Play</string>
     <string name="btnRanquing">Ranking</string>
     <string name="btnAjustaments">Ajustaments</string>
+    <string name="btnQuant">About</string>
 </resources>
