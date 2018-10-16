@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".actJugar" />
         <activity android:name=".actRank" />
+        <activity android:name=".actAjust"></activity>
         <activity android:name=".actQuant"></activity>
     </application>
 
