@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".actJugar" />
-        <activity android:name=".actRank"></activity>
+        <activity android:name=".actRank" />
+        <activity android:name=".actAjust"></activity>
     </application>
 
 </manifest>

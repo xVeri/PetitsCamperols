@@ -5,4 +5,5 @@
     <string name="btnAjustaments">Ajustes</string>
     <string name="btnRanquing">Ranking</string>
     <string name="btnQuant">Sobre...</string>
+    <string name="userName">Nombre de usuario</string>
 </resources>
