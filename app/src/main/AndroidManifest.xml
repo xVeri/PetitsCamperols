@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".actJugar"></activity>
+        <activity android:name=".actJugar" />
+        <activity android:name=".actRank"></activity>
     </application>
 
 </manifest>

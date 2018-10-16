@@ -21,5 +21,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(actJugar);
             }
         });
+
+        Button btnRank = findViewById(R.id.btnRanquing);
+        btnJugar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent actRank = new Intent(MainActivity.this, actRank.class);
+                startActivity(actRank);
+            }
+        });
     }
 }
