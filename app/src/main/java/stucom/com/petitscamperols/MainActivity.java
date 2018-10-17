@@ -31,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnAjustaments = findViewById(R.id.btnAjustaments);
+        btnAjustaments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent actAjust = new Intent(MainActivity.this, actAjust.class);
+                startActivity(actAjust);
+            }
+        });
+
         Button btnQuant = findViewById(R.id.btnQuant);
         btnQuant.setOnClickListener(new View.OnClickListener(){
             @Override
