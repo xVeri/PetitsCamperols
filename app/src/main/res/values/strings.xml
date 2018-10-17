@@ -5,4 +5,5 @@
     <string name="btnAjustaments">Settings</string>
     <string name="btnQuant">About</string>
     <string name="userName">Username</string>
+    <string name="btnBack">Back</string>
 </resources>
