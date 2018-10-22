@@ -2,8 +2,11 @@ package stucom.com.petitscamperols;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class actAjust extends AppCompatActivity {
 
@@ -16,11 +19,23 @@ public class actAjust extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                //Intent MainActivity = new Intent(actQuant.this, MainActivity.class);
-                //startActivity(MainActivity);
-                /// moveTaskToBack(true);
                 finish();
             }
         });
+
+        Button btnSave = findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Layout layUserName = findViewById(R.id.layUserName);
+                //setContentView(R.layout.layUserName);
+                //LayoutInflater factory = getLayoutInflater();
+                //View layUserName = factory.inflate(R.layout.layUserName, null);
+               // EditText user = (EditText) layUserName.findViewById(R.id.layUserName);
+                //String User = user.getText().toString();
+            }
+        });
+
+
     }
 }

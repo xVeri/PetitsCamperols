@@ -7,4 +7,5 @@
     <string name="btnQuant">Sobre...</string>
     <string name="userName">Nombre de usuario</string>
     <string name="btnBack">Atras</string>
+    <string name="userEmail">Correo electronico</string>
 </resources>

@@ -6,4 +6,6 @@
     <string name="btnQuant">About</string>
     <string name="userName">Username</string>
     <string name="btnBack">Back</string>
+    <string name="userEmail">Email</string>
+    <string name="btnGuarda">Save</string>
 </resources>
