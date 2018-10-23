@@ -28,7 +28,8 @@ public class actQuant extends AppCompatActivity {
         btnOnSom.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
+                Intent btnOnSom = new Intent(actQuant.this, actMap.class);
+                startActivity(btnOnSom);
             }
         });
     }
