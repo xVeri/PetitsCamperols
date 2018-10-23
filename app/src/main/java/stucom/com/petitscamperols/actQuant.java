@@ -23,5 +23,13 @@ public class actQuant extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button btnOnSom = findViewById(R.id.btnOnSom);
+        btnOnSom.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
     }
 }
