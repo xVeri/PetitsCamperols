@@ -8,4 +8,6 @@
     <string name="userName">Nom d"'"usuari</string>
     <string name="btnBack">Enrrera</string>
     <string name="userEmail">Correu electronic</string>
+    <string name="txtExplicatiu">Som de stucom.</string>
+    <string name="btnOnSom">On som</string>
 </resources>
