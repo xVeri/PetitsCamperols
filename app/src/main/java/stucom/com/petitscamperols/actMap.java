@@ -37,10 +37,13 @@ public class actMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        mMap.setBuildingsEnabled(false);
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(41.3857367,2.1651769);
+        mMap.setMaxZoomPreference(20);
+        mMap.setMinZoomPreference(18);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Stucom"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
     }
 }

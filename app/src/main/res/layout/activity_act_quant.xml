@@ -40,28 +40,21 @@
                 android:id="@+id/creNom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingExtra="8sp"
-                android:text=" Robert Recordà \n Jesús García"
+                android:text="Robert Recordà \nJesús García"
                 android:textSize="18sp"
                 tools:layout_editor_absoluteX="68dp" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/txtExplicatiu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                tools:text="@string/txtExplicatiu" />
+                android:text="@string/txtExplicatiu"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="370dp" />
+
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/btnBack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnOnSom"
@@ -70,10 +63,9 @@
         android:layout_marginBottom="120dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Button"
+        android:text="@string/btnOnSom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="@string/btnOnSom" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
