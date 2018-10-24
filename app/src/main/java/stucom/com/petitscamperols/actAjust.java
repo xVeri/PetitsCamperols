@@ -43,6 +43,7 @@ public class actAjust extends AppCompatActivity {
         confData.commit();
     }
 
+    @Override
     public void onResume() {
         super.onResume();
         SharedPreferences mypref = getPreferences(MODE_PRIVATE);
