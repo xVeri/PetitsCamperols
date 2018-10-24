@@ -13,17 +13,16 @@ import android.widget.EditText;
 
 public class actAjust extends AppCompatActivity {
 
+    EditText userName;
+    EditText userEmail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_ajust);
 
-        final Context myCont = this;
-        SharedPreferences myPref = getSharedPreferences("config", myCont.MODE_PRIVATE);
-
-        final TextInputLayout userName = findViewById(R.id.layUserName);
-        final TextInputLayout userEmail = findViewById(R.id.layEmail);
-        Button btnSave = findViewById(R.id.btnSave);
+        userName = findViewById(R.id.layUserName);
+        userEmail = findViewById(R.id.layEmail);
 
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener(){
@@ -32,16 +31,24 @@ public class actAjust extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences myPref = getPreferences(myCont.MODE_PRIVATE);
-                SharedPreferences.Editor confData = myPref.edit();
-                confData.putString("userName", userName.getEditText().toString());
-                confData.putString("userEmail", userEmail.getEditText().toString());
-                confData.commit();
-            }
-        });
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences myPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor confData = myPref.edit();
+        confData.putString("userName", userName.getText().toString());
+        confData.putString("userEmail", userEmail.getText().toString());
+        confData.commit();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences mypref = getPreferences(MODE_PRIVATE);
+        userName.setText(mypref.getString("userName", ""));
+        userEmail.setText(mypref.getString("userEmail", ""));
+
     }
 }
