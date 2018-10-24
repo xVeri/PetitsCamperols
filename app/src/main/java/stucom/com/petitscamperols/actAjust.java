@@ -1,14 +1,8 @@
 package stucom.com.petitscamperols;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Layout;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class actAjust extends AppCompatActivity {
@@ -23,14 +17,6 @@ public class actAjust extends AppCompatActivity {
 
         userName = findViewById(R.id.userName);
         userEmail = findViewById(R.id.userEmail);
-
-        Button btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     @Override
