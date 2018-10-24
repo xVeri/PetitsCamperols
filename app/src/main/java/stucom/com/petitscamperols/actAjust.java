@@ -21,8 +21,8 @@ public class actAjust extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_ajust);
 
-        userName = findViewById(R.id.layUserName);
-        userEmail = findViewById(R.id.layEmail);
+        userName = findViewById(R.id.userName);
+        userEmail = findViewById(R.id.userEmail);
 
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener(){
