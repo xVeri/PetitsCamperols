@@ -10,4 +10,6 @@
     <string name="userEmail">Correu electronic</string>
     <string name="txtExplicatiu">Som de stucom.</string>
     <string name="btnOnSom">On som</string>
+    <string name="title_activity_act_map">Mapa</string>
+    <string name="btnGuarda">Guarda</string>
 </resources>

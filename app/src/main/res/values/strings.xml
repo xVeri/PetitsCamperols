@@ -5,9 +5,9 @@
     <string name="btnAjustaments">Settings</string>
     <string name="btnQuant">About</string>
     <string name="userName">Username</string>
-    <string name="btnBack">Back</string>
     <string name="userEmail">Email</string>
     <string name="btnGuarda">Save</string>
     <string name="txtExplicatiu">We are from stucom.</string>
     <string name="btnOnSom">Where are we</string>
+    <string name="title_activity_act_map">Map</string>
 </resources>

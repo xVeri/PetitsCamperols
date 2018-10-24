@@ -12,15 +12,6 @@ public class actRank extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_rank);
 
-        Button btnBack = findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //Intent MainActivity = new Intent(actQuant.this, MainActivity.class);
-                //startActivity(MainActivity);
-                /// moveTaskToBack(true);
-                finish();
-            }
-        });
+
     }
 }
