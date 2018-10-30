@@ -12,4 +12,7 @@
     <string name="btnOnSom">On som</string>
     <string name="title_activity_act_map">Mapa</string>
     <string name="btnGuarda">Guarda</string>
+    <string name="btnImg">Imatge</string>
+    <string name="btnGaleria">Galaria</string>
+    <string name="btnCamera">Camera</string>
 </resources>

@@ -10,4 +10,8 @@
     <string name="txtExplicatiu">We are from stucom.</string>
     <string name="btnOnSom">Where are we</string>
     <string name="title_activity_act_map">Map</string>
+    <string name="btnBack">Back</string>
+    <string name="btnImg">Image</string>
+    <string name="btnGaleria">Gallery</string>
+    <string name="btnCamera">Camera</string>
 </resources>
