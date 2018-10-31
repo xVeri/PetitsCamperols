@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class actAjust extends AppCompatActivity {
 
@@ -28,7 +27,6 @@ public class actAjust extends AppCompatActivity {
         confData.putString("userName", userName.getText().toString());
         confData.putString("userEmail", userEmail.getText().toString());
         confData.commit();
-        Toast.makeText(getApplicationContext(), "Datos guardados", Toast.LENGTH_LONG);
     }
 
     @Override

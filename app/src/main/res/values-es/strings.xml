@@ -6,10 +6,10 @@
     <string name="btnRanquing">Ranking</string>
     <string name="btnQuant">Sobre...</string>
     <string name="userName">Nombre de usuario</string>
-    <string name="btnBack">Atras</string>
     <string name="userEmail">Correo electronico</string>
     <string name="txtExplicatiu">Somos de stucom.</string>
     <string name="btnOnSom">Donde estamos</string>
     <string name="title_activity_act_map">Mapa</string>
     <string name="btnGuarda">Guardar</string>
+    <string name="textSaveOk">Datos guardados</string>
 </resources>
