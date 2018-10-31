@@ -6,10 +6,13 @@
     <string name="btnAjustaments">Ajustaments</string>
     <string name="btnQuant">Quant a...</string>
     <string name="userName">Nom d"'"usuari</string>
+    <string name="btnBack">Enrrera</string>
     <string name="userEmail">Correu electronic</string>
     <string name="txtExplicatiu">Som de stucom.</string>
     <string name="btnOnSom">On som</string>
     <string name="title_activity_act_map">Mapa</string>
     <string name="btnGuarda">Guarda</string>
-    <string name="textSaveOk">Dades guardades</string>
+    <string name="btnImg">Imatge</string>
+    <string name="btnGaleria">Galaria</string>
+    <string name="btnCamera">Camera</string>
 </resources>
