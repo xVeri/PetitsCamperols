@@ -14,8 +14,6 @@ import android.widget.ImageView;
 import java.io.File;
 import java.io.IOException;
 
-import stucom.com.petitscamperols.model.Jugador;
-
 public class actAjust extends AppCompatActivity implements View.OnClickListener {
 
     EditText edName, edEmail;

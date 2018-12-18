@@ -47,15 +47,6 @@
             tools:layout_editor_absoluteY="270dp" />
 
         <Button
-            android:id="@+id/btnCamera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnCamera"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            tools:layout_editor_absoluteY="338dp" />
-
-        <Button
             android:id="@+id/btnGaleria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
