@@ -1,4 +1,4 @@
-package stucom.com.petitscamperols;
+package stucom.com.petitscamperols.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
