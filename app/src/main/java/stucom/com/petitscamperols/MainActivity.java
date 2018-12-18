@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    boolean registred = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
         btnRank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent actRank = new Intent(MainActivity.this, actRank.class);
-                startActivity(actRank);
+                if(registred == false){
+                    Intent actRegistre = new Intent( MainActivity.this, act_registre.class );
+                    startActivity(actRegistre);
+                }else{
+                    Intent actRank = new Intent(MainActivity.this, actRank.class);
+                    startActivity(actRank);
+                }
             }
         });
 
@@ -35,8 +42,13 @@ public class MainActivity extends AppCompatActivity {
         btnAjustaments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent actAjust = new Intent(MainActivity.this, actAjust.class);
-                startActivity(actAjust);
+                if(registred == false){
+                    Intent actRegistre = new Intent( MainActivity.this, act_registre.class );
+                    startActivity(actRegistre);
+                }else{
+                    Intent actAjust = new Intent(MainActivity.this, actAjust.class);
+                    startActivity(actAjust);
+                }
             }
         });
 

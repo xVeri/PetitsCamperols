@@ -15,4 +15,8 @@
     <string name="btnImg">Imagen</string>
     <string name="btnCamera">Camera</string>
     <string name="btnGaleria">Galeria</string>
+    <string name="send">Enviar</string>
+    <string name="registerExplanationText">Write your mail and send it to us. Soo we can send you your verification code to be registered in our app.</string>
+    <string name="veriCode">Codigo</string>
+    <string name="veriCodeExplanationText">Porfavor, introduzca el codigo que ha sido enviado a su correo electronico.</string>
 </resources>
