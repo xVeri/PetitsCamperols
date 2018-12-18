@@ -1,6 +1,7 @@
 package stucom.com.petitscamperols;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +18,10 @@ public class actQuant extends AppCompatActivity {
         btnOnSom.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent btnOnSom = new Intent(actQuant.this, actMap.class);
-                startActivity(btnOnSom);
+                Uri uri = Uri.parse("geo:41.3857257,2.1651803?z=18&q=Stucom");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setPackage("com.google.android.apps.maps");
+                startActivity(intent);
             }
         });
     }
