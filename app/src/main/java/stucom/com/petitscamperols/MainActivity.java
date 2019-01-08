@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    boolean registred = false;
+    public static boolean registred = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
