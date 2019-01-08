@@ -81,6 +81,7 @@ public class act_registre extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("email", txt_eMail.getText().toString());
+                //Toast.makeText(act_registre.this, txt_eMail.getText().toString(), Toast.LENGTH_LONG).show();
                 return params;
             }
         };
