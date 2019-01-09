@@ -18,6 +18,8 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+import stucom.com.petitscamperols.model.ApiResponse;
+
 public class act_registre2 extends AppCompatActivity {
 
     public static EditText txt_code;
@@ -51,12 +53,8 @@ public class act_registre2 extends AppCompatActivity {
 
     }
 
-    public void saveToken(Context context, String data) {
-        SharedPreferences prefs =
-                context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString("token", data);
-        prefsEditor.apply();
+    public void saveToken(String data) {
+        MainActivity.player.saveToken(this, data);
     }
 
     private void apiPost(final EditText txt_code){
@@ -68,9 +66,10 @@ public class act_registre2 extends AppCompatActivity {
                     public void onResponse(String response) {
                         //Log.d("Response", response);
                         MainActivity.registred = true;
-                        Toast.makeText(act_registre2.this, response, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(act_registre2.this, "Registrado con éxito", Toast.LENGTH_LONG).show();
                         responseOk = true;
-                        responseaux = response;
+                        responseaux = response.split("\"")[3];
+                        //Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -89,7 +88,7 @@ public class act_registre2 extends AppCompatActivity {
             }
         };
         if (responseOk) {
-            saveToken(this, responseaux);
+            saveToken(responseaux);
         }
         MyVolley.getInstance(this).add(request);
     }

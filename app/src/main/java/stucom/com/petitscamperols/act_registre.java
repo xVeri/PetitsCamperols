@@ -50,9 +50,6 @@ public class act_registre extends AppCompatActivity {
                 txt_eMail = findViewById(R.id.txt_eMail);
                 apiPost(txt_eMail);
 
-
-                Intent actRegistre2 = new Intent(act_registre.this, act_registre2.class);
-                startActivity(actRegistre2);
             }
         });
 
@@ -68,13 +65,15 @@ public class act_registre extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         //Log.d("Response", response);
-                        Toast.makeText(act_registre.this, response, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(act_registre.this, "Se te ha enviado el codigo de confirmación al correo", Toast.LENGTH_LONG).show();
+                        Intent actRegistre2 = new Intent(act_registre.this, act_registre2.class);
+                        startActivity(actRegistre2);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //Log.d("Error.Response", error.toString());
-                Toast.makeText(act_registre.this, error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(act_registre.this, "Error al conectar con la API", Toast.LENGTH_LONG).show();
             }
         }) {
             @Override

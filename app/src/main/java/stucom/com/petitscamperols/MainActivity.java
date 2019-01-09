@@ -1,14 +1,18 @@
 package stucom.com.petitscamperols;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import stucom.com.petitscamperols.model.Jugador;
+
 public class MainActivity extends AppCompatActivity {
 
     public static boolean registred = false;
+    public static Jugador player = new Jugador();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

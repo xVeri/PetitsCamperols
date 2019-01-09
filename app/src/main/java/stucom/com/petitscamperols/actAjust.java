@@ -1,12 +1,16 @@
 package stucom.com.petitscamperols;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import stucom.com.petitscamperols.model.Jugador;
 
@@ -16,6 +20,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     ImageView imAvatar;
     Uri photoURI;
     Jugador player;
+    TextView token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +29,10 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         edName = findViewById(R.id.userName);
         edEmail = findViewById(R.id.userEmail);
         imAvatar = findViewById(R.id.imageView);
+        token = findViewById(R.id.token);
+        player = MainActivity.player;
+
         findViewById(R.id.btnGaleria).setOnClickListener(this);
-        player = new Jugador();
     }
 
     @Override
@@ -35,6 +42,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         player.loadPrefs(this);
         edName.setText(player.getName());
         edEmail.setText(player.getEmail());
+        token.setText(player.getToken());
         setAvatarImage(player.getAvatar(), false);
     }
 
