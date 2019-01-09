@@ -56,10 +56,10 @@
 
     <TextView
         android:id="@+id/token"
-        android:layout_width="386dp"
-        android:layout_height="115dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="GÑE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -54,7 +54,7 @@ public class act_registre2 extends AppCompatActivity {
     }
 
     public void saveToken(String data) {
-        MainActivity.player.saveToken(this, data);
+        MainActivity.player.saveToken(this.getApplicationContext(), data);
     }
 
     private void apiPost(final EditText txt_code){
@@ -69,7 +69,7 @@ public class act_registre2 extends AppCompatActivity {
                         //Toast.makeText(act_registre2.this, "Registrado con éxito", Toast.LENGTH_LONG).show();
                         responseOk = true;
                         responseaux = response.split("\"")[3];
-                        //Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
+                        Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override

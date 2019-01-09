@@ -32,6 +32,9 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         token = findViewById(R.id.token);
         player = MainActivity.player;
 
+        player.loadPrefs(this.getApplicationContext());
+        token.setText(player.getToken());
+
         findViewById(R.id.btnGaleria).setOnClickListener(this);
     }
 
@@ -39,7 +42,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     public void onResume() {
         super.onResume();
         // Load player info from SharedPrefs
-        player.loadPrefs(this);
+        player.loadPrefs(this.getApplicationContext());
         edName.setText(player.getName());
         edEmail.setText(player.getEmail());
         token.setText(player.getToken());
@@ -50,7 +53,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     public void onPause() {
         player.setName(edName.getText().toString());
         player.setEmail(edEmail.getText().toString());
-        player.savePrefs(this);
+        player.savePrefs(this.getApplicationContext());
         super.onPause();
     }
 
@@ -92,7 +95,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         }
         if (!saveToSharedPreferences) return;
         player.setAvatar(avatar);
-        player.savePrefs(this);
+        player.savePrefs(this.getApplicationContext());
     }
 
 }
