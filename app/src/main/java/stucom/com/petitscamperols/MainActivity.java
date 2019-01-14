@@ -68,4 +68,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        player.loadPrefs(this.getApplicationContext());
+        registred = player.getToken().equals("");
+    }
 }

@@ -41,11 +41,12 @@ public class Jugador {
         prefsEditor.apply();
     }
 
-    public void saveToken(Context context, String tokenapi) {
+    public void saveToken(Context context, String tokenapi, String emailapi) {
         SharedPreferences prefs =
                 context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = prefs.edit();
         prefsEditor.putString("token", tokenapi);
+        prefsEditor.putString("playerEmail", emailapi);
         prefsEditor.apply();
     }
 }

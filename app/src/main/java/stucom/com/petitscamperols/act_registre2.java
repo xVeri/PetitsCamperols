@@ -54,9 +54,7 @@ public class act_registre2 extends AppCompatActivity {
     }
 
     public void saveToken(String data) {
-        MainActivity.player.saveToken(this.getApplicationContext(), data);
-        MainActivity.player.setEmail(act_registre.txt_eMail.getText().toString());
-        MainActivity.player.savePrefs(this.getApplicationContext());
+        MainActivity.player.saveToken(this.getApplicationContext(), data, act_registre.txt_eMail.getText().toString());
     }
 
     private void apiPost(final EditText txt_code){
@@ -71,7 +69,7 @@ public class act_registre2 extends AppCompatActivity {
                         //Toast.makeText(act_registre2.this, "Registrado con éxito", Toast.LENGTH_LONG).show();
                         responseaux = response.split("\"")[3];
                         saveToken(responseaux);
-                        Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
