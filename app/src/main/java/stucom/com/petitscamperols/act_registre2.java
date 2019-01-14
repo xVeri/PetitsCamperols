@@ -55,7 +55,8 @@ public class act_registre2 extends AppCompatActivity {
 
     public void saveToken(String data) {
         MainActivity.player.saveToken(this.getApplicationContext(), data);
-        Log.d("token", data);
+        MainActivity.player.setEmail(act_registre.txt_eMail.getText().toString());
+        MainActivity.player.loadPrefs(this.getApplicationContext());
     }
 
     private void apiPost(final EditText txt_code){

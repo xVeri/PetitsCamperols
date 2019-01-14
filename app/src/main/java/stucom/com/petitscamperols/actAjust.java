@@ -16,20 +16,19 @@ import stucom.com.petitscamperols.model.Jugador;
 
 public class actAjust extends AppCompatActivity implements View.OnClickListener {
 
-    EditText edName, edEmail;
+    EditText edName;
+    TextView edEmail;
     ImageView imAvatar;
     Uri photoURI;
     Jugador player;
-    TextView token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_ajust);
         edName = findViewById(R.id.userName);
-        edEmail = findViewById(R.id.userEmail);
+        edEmail = findViewById(R.id.edEmail);
         imAvatar = findViewById(R.id.imageView);
-        token = findViewById(R.id.token);
         player = MainActivity.player;
 
         findViewById(R.id.btnGaleria).setOnClickListener(this);

@@ -29,13 +29,11 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="128dp" />
 
-        <EditText
-            android:id="@+id/userEmail"
+        <TextView
+            android:id="@+id/edEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/userEmail"
-            android:inputType="textEmailAddress" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/imageView"
