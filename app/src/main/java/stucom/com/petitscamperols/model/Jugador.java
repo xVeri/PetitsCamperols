@@ -37,15 +37,15 @@ public class Jugador {
         prefsEditor.putString("playerName", name);
         prefsEditor.putString("playerEmail", email);
         prefsEditor.putString("playerAvatar", avatar);
+        prefsEditor.putString("token", token);
         prefsEditor.apply();
     }
 
-    public void saveToken(Context context, String token) {
+    public void saveToken(Context context, String tokenapi) {
         SharedPreferences prefs =
                 context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = prefs.edit();
-        prefsEditor.putString("token", token);
+        prefsEditor.putString("token", tokenapi);
         prefsEditor.apply();
-        this.token = token;
     }
 }

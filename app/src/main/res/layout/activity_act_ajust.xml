@@ -57,7 +57,7 @@
     <TextView
         android:id="@+id/token"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="119dp"
         android:layout_marginStart="8dp"
         android:text="GÑE"
         app:layout_constraintEnd_toEndOf="parent"
