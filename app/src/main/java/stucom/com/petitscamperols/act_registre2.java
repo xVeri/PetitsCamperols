@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +26,6 @@ public class act_registre2 extends AppCompatActivity {
     public static EditText txt_code;
     Button btn_send2;
     public final static String URL = "https://api.flx.cat/dam2game/register";
-    boolean responseOk = false;
     String responseaux;
 
     @Override
@@ -55,6 +55,7 @@ public class act_registre2 extends AppCompatActivity {
 
     public void saveToken(String data) {
         MainActivity.player.saveToken(this.getApplicationContext(), data);
+        Log.d("token", data);
     }
 
     private void apiPost(final EditText txt_code){
@@ -67,8 +68,8 @@ public class act_registre2 extends AppCompatActivity {
                         //Log.d("Response", response);
                         MainActivity.registred = true;
                         //Toast.makeText(act_registre2.this, "Registrado con éxito", Toast.LENGTH_LONG).show();
-                        responseOk = true;
                         responseaux = response.split("\"")[3];
+                        saveToken(responseaux);
                         Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
@@ -87,9 +88,6 @@ public class act_registre2 extends AppCompatActivity {
                 return params;
             }
         };
-        if (responseOk) {
-            saveToken(responseaux);
-        }
         MyVolley.getInstance(this).add(request);
     }
 }

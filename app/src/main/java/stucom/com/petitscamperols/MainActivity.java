@@ -11,13 +11,16 @@ import stucom.com.petitscamperols.model.Jugador;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static boolean registred = false;
+    static boolean registred;
     public static Jugador player = new Jugador();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        player.loadPrefs(this.getApplicationContext());
+        registred = player.getToken().equals("");
 
         Button btnJugar = findViewById(R.id.btnJugar);
         btnJugar.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnRank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(registred == false){
+                if(registred){
                     Intent actRegistre = new Intent( MainActivity.this, act_registre.class );
                     startActivity(actRegistre);
                 }else{
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         btnAjustaments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(registred == false){
+                if(registred){
                     Intent actRegistre = new Intent( MainActivity.this, act_registre.class );
                     startActivity(actRegistre);
                 }else{

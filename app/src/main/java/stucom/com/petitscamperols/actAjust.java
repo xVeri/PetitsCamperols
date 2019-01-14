@@ -32,9 +32,6 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         token = findViewById(R.id.token);
         player = MainActivity.player;
 
-        player.loadPrefs(this.getApplicationContext());
-        token.setText(player.getToken());
-
         findViewById(R.id.btnGaleria).setOnClickListener(this);
     }
 
@@ -45,7 +42,6 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         player.loadPrefs(this.getApplicationContext());
         edName.setText(player.getName());
         edEmail.setText(player.getEmail());
-        token.setText(player.getToken());
         setAvatarImage(player.getAvatar(), false);
     }
 
