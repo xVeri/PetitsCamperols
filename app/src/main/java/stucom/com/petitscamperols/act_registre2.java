@@ -67,7 +67,7 @@ public class act_registre2 extends AppCompatActivity {
                     public void onResponse(String response) {
                         //Log.d("Response", response);
                         MainActivity.registred = true;
-                        //Toast.makeText(act_registre2.this, "Registrado con éxito", Toast.LENGTH_LONG).show();
+                        Toast.makeText(act_registre2.this, "Registrado con éxito", Toast.LENGTH_LONG).show();
                         responseaux = response.split("\"")[3];
                         saveToken(responseaux);
                         //Toast.makeText(act_registre2.this, responseaux, Toast.LENGTH_LONG).show();
