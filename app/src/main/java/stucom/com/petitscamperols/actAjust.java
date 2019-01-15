@@ -1,8 +1,6 @@
 package stucom.com.petitscamperols;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import stucom.com.petitscamperols.model.Jugador;
 
@@ -21,6 +18,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     ImageView imAvatar;
     Uri photoURI;
     Jugador player;
+    //changeNameOnApi changeapi = new changeNameOnApi();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         player.setName(edName.getText().toString());
         player.setEmail(edEmail.getText().toString());
         player.savePrefs(this.getApplicationContext());
+        //changeapi.apiPostName(edName.getText().toString());
         super.onPause();
     }
 
@@ -92,5 +91,4 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         player.setAvatar(avatar);
         player.savePrefs(this.getApplicationContext());
     }
-
 }
