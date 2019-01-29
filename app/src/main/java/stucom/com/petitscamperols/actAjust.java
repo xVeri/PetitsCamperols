@@ -48,6 +48,8 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         player.setEmail(edEmail.getText().toString());
         player.savePrefs(this.getApplicationContext());
         //changeapi.apiPostName(edName.getText().toString());
+        Intent tomenu = new Intent(actAjust.this, changeNameOnApi.class);
+        startActivity(tomenu);
         super.onPause();
     }
 
