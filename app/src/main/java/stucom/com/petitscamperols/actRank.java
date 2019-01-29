@@ -14,12 +14,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -78,10 +80,27 @@ public class actRank extends AppCompatActivity {
                         String json = response.toString();
                         Gson gson = new Gson();
                         Type typeToken = new TypeToken<ApiResponse<List<Jugador>>>() {}.getType();
+                        ApiResponse<List<Jugador>> apiResponse = gson.fromJson(json, typeToken);
+                        List<Jugador> jugadors = apiResponse.getData();
+                        UsersAdapter adapter = new UsersAdapter(jugadors);
+                        recyclerView.setAdapter(adapter);
+
+                        String message = "Downloaded "+jugadors.size() + " jugadors\n";
+                        for(Jugador j:jugadors){
+                            message += j.getName() + ":"+ j.getAvatar()+"\n";
+                        }
+                        textView.setText(message);
+                        swipeRefreshLayout.setRefreshing(false);
                     }
                 }, new Response.ErrorListener() {
             @Override public void onErrorResponse(VolleyError error) {
-
+                String message = error.toString();
+                NetworkResponse response = error.networkResponse;
+                if(response != null){
+                    message = response.statusCode+" "+message;
+                }
+                textView.setText("ERROR "+message);
+                swipeRefreshLayout.setRefreshing(false);
             }
         }) {
             @Override protected Map<String, String> getParams() {
