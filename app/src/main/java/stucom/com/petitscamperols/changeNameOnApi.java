@@ -23,27 +23,18 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class changeNameOnApi extends AppCompatActivity {
+public class changeNameOnApi {
 
-    public final static String url = "https://api.flx.cat/dam2game/register";
+    public final static String url = "https://api.flx.cat/dam2game/user";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        sendRequest();
-
-        Intent tomenu = new Intent(changeNameOnApi.this, MainActivity.class);
-        startActivity(tomenu);
-    }
-
-    private void sendRequest() {
-        RequestQueue queue = Volley.newRequestQueue(this);
+    public void sendRequest(Context aux) {
+        RequestQueue queue = Volley.newRequestQueue(aux);
 
         final JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("token", MainActivity.player.getToken());
             jsonObject.put("name", MainActivity.player.getName());
-            jsonObject.put("image", MainActivity.player.getAvatar());
+            jsonObject.put("image", MainActivity.player.getAvatar64());
         } catch (JSONException e) {
             Log.d("json", "Error json 1");
         }

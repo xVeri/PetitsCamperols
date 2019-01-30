@@ -44,12 +44,11 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onPause() {
+        changeNameOnApi aux = new changeNameOnApi();
         player.setName(edName.getText().toString());
         player.setEmail(edEmail.getText().toString());
         player.savePrefs(this.getApplicationContext());
-        //changeapi.apiPostName(edName.getText().toString());
-        Intent tomenu = new Intent(actAjust.this, changeNameOnApi.class);
-        startActivity(tomenu);
+        aux.sendRequest(this.getApplicationContext());
         super.onPause();
     }
 
