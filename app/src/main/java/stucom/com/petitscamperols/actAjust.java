@@ -26,7 +26,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_act_ajust);
         edName = findViewById(R.id.userName);
         edEmail = findViewById(R.id.edEmail);
-        imAvatar = findViewById(R.id.imageView);
+        imAvatar = findViewById(R.id.ppAvatar);
         player = MainActivity.player;
 
         findViewById(R.id.btnGaleria).setOnClickListener(this);
