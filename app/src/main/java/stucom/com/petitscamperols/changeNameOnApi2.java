@@ -39,7 +39,7 @@ public class changeNameOnApi2 {
                 params.put("token", MainActivity.player.getToken());
                 Log.d("Token", MainActivity.player.getToken());
                 params.put("name", MainActivity.player.getName());
-                params.put("image", MainActivity.player.getAvatar64());
+                params.put("image", MainActivity.player.getImage());
                 return params;
             }
         };

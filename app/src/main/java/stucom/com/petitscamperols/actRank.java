@@ -1,5 +1,7 @@
 package stucom.com.petitscamperols;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,7 +77,7 @@ public class actRank extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.e("this", response.toString());
-                        String json = response.toString();
+                        String json = response;
                         Gson gson = new Gson();
                         Type typeToken = new TypeToken<ApiResponse<List<Jugador>>>() {}.getType();
                         ApiResponse<List<Jugador>> apiResponse = gson.fromJson(json, typeToken);
@@ -145,7 +148,7 @@ public class actRank extends AppCompatActivity {
         public void onBindViewHolder(@NonNull UsersViewHolder viewHolder, int position){
             Jugador user = users.get(position);
             viewHolder.textView.setText(user.getName());
-            Picasso.get().load(user.getAvatar()).into(viewHolder.imageView);
+            Picasso.get().load(user.getImage()).into(viewHolder.imageView);
         }
 
         @Override

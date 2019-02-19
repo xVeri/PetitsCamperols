@@ -8,16 +8,22 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.util.Base64;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.ByteArrayOutputStream;
 
 import stucom.com.petitscamperols.R;
 
 public class Jugador {
+
+    @SerializedName("name")
     private String name;
+    @SerializedName("email")
     private String email;
     private String avatar;
     private String token;
-    private String avatar64;
+    @SerializedName("image")
+    private String image;
 
     public Jugador() {
     }
@@ -25,7 +31,7 @@ public class Jugador {
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getAvatar() { return avatar; }
-    public String getAvatar64() { return avatar64; }
+    public String getImage() { return image; }
     public String getToken() { return token; }
 
     public void setName(String name) { this.name = name; }
@@ -36,7 +42,7 @@ public class Jugador {
         foto.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] b = baos.toByteArray();
         String imageString = Base64.encodeToString(b, Base64.DEFAULT);
-        this.avatar64 = imageString;
+        this.image = imageString;
     }
 
     public void loadPrefs(Context context) {
@@ -46,7 +52,7 @@ public class Jugador {
         this.email = prefs.getString("playerEmail", "");
         this.avatar = prefs.getString("playerAvatar", null);
         this.token = prefs.getString("token", "");
-        this.avatar64 = prefs.getString("avatar64", null);
+        this.image = prefs.getString("avatar64", null);
     }
 
     public void savePrefs(Context context) {
@@ -57,7 +63,7 @@ public class Jugador {
         prefsEditor.putString("playerEmail", email);
         prefsEditor.putString("playerAvatar", avatar);
         prefsEditor.putString("token", token);
-        prefsEditor.putString("avatar64", avatar64);
+        prefsEditor.putString("avatar64", image);
         prefsEditor.apply();
     }
 

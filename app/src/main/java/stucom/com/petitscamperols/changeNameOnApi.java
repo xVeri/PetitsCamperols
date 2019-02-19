@@ -34,7 +34,7 @@ public class changeNameOnApi {
         try {
             jsonObject.put("token", MainActivity.player.getToken());
             jsonObject.put("name", MainActivity.player.getName());
-            jsonObject.put("image", MainActivity.player.getAvatar64());
+            jsonObject.put("image", MainActivity.player.getImage());
         } catch (JSONException e) {
             Log.d("json", "Error json 1");
         }
