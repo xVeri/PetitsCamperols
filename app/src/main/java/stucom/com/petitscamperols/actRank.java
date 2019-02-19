@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,13 +18,10 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -47,7 +44,7 @@ public class actRank extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_rank);
 
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.ppName);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -67,33 +64,35 @@ public class actRank extends AppCompatActivity {
         downloadUsers();
     }
 
-    final static String URL = "https://api.flx.cat/dam2game/ranking";
+    final static String URLR = "https://api.flx.cat/dam2game/ranking";
 
     public void downloadUsers(){
-        JsonObjectRequest request = new JsonObjectRequest(
+        StringRequest request = new StringRequest(
                 Request.Method.GET,
-                URL,
-                null,
-                new Response.Listener<JSONObject>() {
+                URLR + "?token="+player.getToken(),
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(String response) {
+                        Log.e("this", response.toString());
                         String json = response.toString();
                         Gson gson = new Gson();
                         Type typeToken = new TypeToken<ApiResponse<List<Jugador>>>() {}.getType();
                         ApiResponse<List<Jugador>> apiResponse = gson.fromJson(json, typeToken);
-                        List<Jugador> jugadors = apiResponse.getData();
-                        UsersAdapter adapter = new UsersAdapter(jugadors);
+                        List<Jugador> pp = apiResponse.getData();
+                        UsersAdapter adapter = new UsersAdapter(pp);
                         recyclerView.setAdapter(adapter);
 
-                        String message = "Downloaded "+jugadors.size() + " jugadors\n";
-                        for(Jugador j:jugadors){
+                        String message = "Downloaded "+pp.size() + " jugadors\n";
+                        /*for(Jugador j:pp){
                             message += j.getName() + ":"+ j.getAvatar()+"\n";
                         }
+                        */
                         textView.setText(message);
                         swipeRefreshLayout.setRefreshing(false);
                     }
                 }, new Response.ErrorListener() {
-            @Override public void onErrorResponse(VolleyError error) {
+            @Override
+            public void onErrorResponse(VolleyError error) {
                 String message = error.toString();
                 NetworkResponse response = error.networkResponse;
                 if(response != null){
@@ -102,10 +101,12 @@ public class actRank extends AppCompatActivity {
                 textView.setText("ERROR "+message);
                 swipeRefreshLayout.setRefreshing(false);
             }
-        }) {
-            @Override protected Map<String, String> getParams() {
+        }){
+            @Override
+            protected Map<String, String> getParams() {
+                Log.d("HEYYYYYYYYYYYYYY", "Heyyy");
                 Map<String, String> params = new HashMap<>();
-                params.put("token", MainActivity.player.getToken());
+                params.put("token", player.getToken());
                 return params;
             }
         };
@@ -120,8 +121,8 @@ public class actRank extends AppCompatActivity {
 
         UsersViewHolder(@NonNull View itemView){
             super(itemView);
-            textView = itemView.findViewById(R.id.textView);
-            imageView = itemView.findViewById(R.id.imageView);
+            textView = itemView.findViewById(R.id.ppName);
+            imageView = itemView.findViewById(R.id.ppAvatar);
         }
 
     }
