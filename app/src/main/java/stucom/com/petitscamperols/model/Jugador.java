@@ -2,11 +2,15 @@ package stucom.com.petitscamperols.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
+
+import stucom.com.petitscamperols.R;
 
 public class Jugador {
     private String name;
@@ -26,13 +30,12 @@ public class Jugador {
 
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
-    public void setAvatar(String avatar) {
+    public void setAvatar(String avatar, Resources res, Bitmap foto) {
         this.avatar = avatar;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Bitmap bitmap = BitmapFactory.decodeResource(getAvatar(), R.drawable.imageView);
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imagebytes = baos.toByteArray();
-        String imageString = Base64.encodeToString(imagebytes, Base64.DEFAULT);
+        foto.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] b = baos.toByteArray();
+        String imageString = Base64.encodeToString(b, Base64.DEFAULT);
         this.avatar64 = imageString;
     }
 

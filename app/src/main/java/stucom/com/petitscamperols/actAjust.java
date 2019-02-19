@@ -1,13 +1,17 @@
 package stucom.com.petitscamperols;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 import stucom.com.petitscamperols.model.Jugador;
 
@@ -18,6 +22,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     ImageView imAvatar;
     Uri photoURI;
     Jugador player;
+    Bitmap foto;
     //changeNameOnApi changeapi = new changeNameOnApi();
 
     @Override
@@ -44,7 +49,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onPause() {
-        changeNameOnApi aux = new changeNameOnApi();
+        changeNameOnApi2 aux = new changeNameOnApi2();
         player.setName(edName.getText().toString());
         player.setEmail(edEmail.getText().toString());
         player.savePrefs(this.getApplicationContext());
@@ -75,6 +80,11 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
 
         if (requestCode == AVATAR_FROM_GALLERY) {
             photoURI = data.getData();
+            try {
+                foto = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
+            } catch (IOException ex){
+
+            }
         }
         String avatar = (photoURI == null) ? null : photoURI.toString();
         setAvatarImage(avatar, true);
@@ -89,7 +99,7 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
             imAvatar.setImageURI(uri);
         }
         if (!saveToSharedPreferences) return;
-        player.setAvatar(avatar);
+        player.setAvatar(avatar, getResources(), foto);
         player.savePrefs(this.getApplicationContext());
     }
 }

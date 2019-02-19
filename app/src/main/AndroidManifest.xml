@@ -46,7 +46,7 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".act_registre" />
-        <activity android:name=".act_registre2"></activity>
+        <activity android:name=".act_registre2" />
     </application>
 
 </manifest>
