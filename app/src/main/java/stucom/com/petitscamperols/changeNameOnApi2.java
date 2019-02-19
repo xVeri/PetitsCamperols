@@ -37,6 +37,7 @@ public class changeNameOnApi2 {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("token", MainActivity.player.getToken());
+                Log.d("Token", MainActivity.player.getToken());
                 params.put("name", MainActivity.player.getName());
                 params.put("image", MainActivity.player.getAvatar64());
                 return params;
