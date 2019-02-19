@@ -51,11 +51,20 @@ public class act_registre2 extends AppCompatActivity {
 
     }
 
+    /**
+     * Guarda los tokens de un jugador
+     * @param data
+     */
     public void saveToken(String data) {
         MainActivity.player.saveToken(this.getApplicationContext(), data, act_registre.txt_eMail.getText().toString());
         MainActivity.registred = false;
     }
 
+    /**
+     * Envia el mail con el codigo de verificación.
+     * En caso de que todo este correcto, esta funcion llama a saveToken
+     * @param txt_code
+     */
     private void apiPost(final EditText txt_code){
         StringRequest request = new StringRequest(
                 Request.Method.POST,

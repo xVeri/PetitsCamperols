@@ -15,8 +15,16 @@ import java.util.Map;
 
 public class changeNameOnApi2 {
 
+    /**
+     * La url del api
+     */
     public final static String url = "https://api.flx.cat/dam2game/user";
 
+    /**
+     * Modifica la información de un usuario en la bd de la api con la información guarda
+     * en el Jugador
+     * @param aux
+     */
     public void sendRequest(Context aux) {
         RequestQueue queue = Volley.newRequestQueue(aux);
 

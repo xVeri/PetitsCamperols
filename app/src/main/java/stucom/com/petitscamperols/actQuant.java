@@ -9,6 +9,10 @@ import android.widget.Button;
 
 public class actQuant extends AppCompatActivity {
 
+    /**
+     * Al crearse hace uso de una api para mostrar la posición de stucom en el mapa
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

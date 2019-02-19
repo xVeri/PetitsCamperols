@@ -11,9 +11,21 @@ import stucom.com.petitscamperols.model.Jugador;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Guarda si un jugador esta registrado o no
+     */
     static boolean registred;
+    /**
+     * Guarda el jugador principal de la aplicación
+     */
     public static Jugador player = new Jugador();
 
+    /**
+     * Al crearse carga todos los botones del menu ademas de cargar el jugador y
+     * comprobar si esta registrado.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Al volver carga el jugador
+     */
     @Override
     protected void onResume() {
         super.onResume();

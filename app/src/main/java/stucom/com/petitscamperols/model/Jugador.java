@@ -28,6 +28,7 @@ public class Jugador {
     public Jugador() {
     }
 
+    //Datos del jugador
     public String getName() { return name; }
     public String getEmail() { return email; }
     public String getAvatar() { return avatar; }
@@ -36,6 +37,7 @@ public class Jugador {
 
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) { this.email = email; }
+    //Guarda el vatar de un jugador
     public void setAvatar(String avatar, Resources res, Bitmap foto) {
         this.avatar = avatar;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -45,6 +47,7 @@ public class Jugador {
         this.image = imageString;
     }
 
+    //Carga la información de un jugador
     public void loadPrefs(Context context) {
         SharedPreferences prefs =
                 context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
@@ -55,6 +58,7 @@ public class Jugador {
         this.image = prefs.getString("avatar64", null);
     }
 
+    //Guarda la información de un jugador a sharedPreferences
     public void savePrefs(Context context) {
         SharedPreferences prefs =
                 context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
@@ -67,6 +71,7 @@ public class Jugador {
         prefsEditor.apply();
     }
 
+    //Guarda el token de un jugador a share4d preferences
     public void saveToken(Context context, String tokenapi, String emailapi) {
         SharedPreferences prefs =
                 context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);

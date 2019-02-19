@@ -8,6 +8,8 @@ import com.android.volley.toolbox.Volley;
 
 public class MyVolley {
 
+    //Esta classe gestiona toda la informacion que transmite la api
+
     private static MyVolley instance;
 
     public static MyVolley getInstance(Context context){

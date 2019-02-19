@@ -61,14 +61,23 @@ public class actRank extends AppCompatActivity {
         });
     }
 
+    /**
+     * Al volver llama la funcion downloadUsers()
+     */
     @Override
     public void onResume(){
         super.onResume();
         downloadUsers();
     }
 
+    /**
+     * Url del ranking
+     */
     final static String URLR = "https://api.flx.cat/dam2game/ranking";
 
+    /**
+     * Descarga todos los jugadores que hay
+     */
     public void downloadUsers(){
         StringRequest request = new StringRequest(
                 Request.Method.GET,

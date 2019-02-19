@@ -57,6 +57,7 @@ public class act_registre extends AppCompatActivity {
 
     }
 
+    //Envia el mail del jugador
     private void apiPost(final EditText txt_eMail){
         StringRequest request = new StringRequest(
                 Request.Method.POST,

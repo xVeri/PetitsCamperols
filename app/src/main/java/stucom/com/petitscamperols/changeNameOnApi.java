@@ -25,6 +25,10 @@ import java.util.Map;
 
 public class changeNameOnApi {
 
+
+    //ESTA CLASSE NO ESTA SIENDO USADA EN NINGUNA PARTE
+    //SOLO SON PRUEBAS
+
     public final static String url = "https://api.flx.cat/dam2game/user";
 
     public void sendRequest(Context aux) {

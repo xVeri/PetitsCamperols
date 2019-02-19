@@ -25,6 +25,10 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     Bitmap foto;
     //changeNameOnApi changeapi = new changeNameOnApi();
 
+    /**
+     * Al crear se modifica toda la informacion con lo guardado en el Jugador
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,10 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         findViewById(R.id.btnGaleria).setOnClickListener(this);
     }
 
+    /**
+     * Al volver se hace una carga de los shared preferences y se modifica la interfaz con la
+     * informacion almazenada
+     */
     @Override
     public void onResume() {
         super.onResume();
@@ -47,6 +55,9 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         setAvatarImage(player.getAvatar(), false);
     }
 
+    /**
+     * Al pausar se hace un set de todo y lo guarda en los shared preferences
+     */
     @Override
     public void onPause() {
         changeNameOnApi2 aux = new changeNameOnApi2();
@@ -67,12 +78,21 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
     private static final int AVATAR_FROM_GALLERY = 1;
 
 
+    /**
+     * Coge una foto de la galeria.
+     */
     public void getAvatarFromGallery() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.setType("image/*");
         startActivityForResult(intent, AVATAR_FROM_GALLERY);
     }
 
+    /**
+     * transforma una imagen a formato bitmap
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -90,6 +110,15 @@ public class actAjust extends AppCompatActivity implements View.OnClickListener 
         setAvatarImage(avatar, true);
     }
 
+    /**
+     * Modifica el avatar de un jugador.
+     * En caso de que el avatar sea null se modifica este por una imagen de muestra.
+     *
+     * Tras configurar la imagen, esta funcion tambien se encarga de que la imagen quede guardada en
+     * shared preferences.
+     * @param avatar
+     * @param saveToSharedPreferences
+     */
     public void setAvatarImage(String avatar, boolean saveToSharedPreferences) {
         if (avatar == null) {
             imAvatar.setImageResource(R.drawable.unknown);

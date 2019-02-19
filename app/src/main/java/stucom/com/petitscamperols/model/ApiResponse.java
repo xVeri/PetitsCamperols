@@ -6,6 +6,7 @@ public class ApiResponse<T> {
     private int errorCode;
     private String errorMsg;
 
+    //Contructor Api response
     public ApiResponse(T data, int count, int errorCode, String errorMsg){
         this.data = data;
         this.count = count;
@@ -13,6 +14,7 @@ public class ApiResponse<T> {
         this.errorMsg = errorMsg;
     }
 
+    //Getter y setters
     public T getData(){ return data;}
     public void setData(T data){this.data = data;}
     public int getCount(){return count;}
