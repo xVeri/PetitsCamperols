@@ -1,5 +1,9 @@
 package stucom.com.petitscamperols;
 
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -8,11 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class actJugar extends AppCompatActivity implements wormyView.WormyListener {
+public class actJugar extends AppCompatActivity implements wormyView.WormyListener, SensorEventListener {
 
     private wormyView wormyView;
     private TextView tvScore;
-
+    private SensorManager sensorManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,27 +34,36 @@ public class actJugar extends AppCompatActivity implements wormyView.WormyListen
             }
         });
         wormyView.setWormyListener(this);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
     }
 
-
-    //Key setter, TODO Change for accelerometer
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        switch (event.getKeyCode()) {
-            case KeyEvent.KEYCODE_A:
-                wormyView.update(0, +10);
-                break; //Down
-            case KeyEvent.KEYCODE_Q:
-                wormyView.update(0, -10);
-                break; //Up
-            case KeyEvent.KEYCODE_O:
-                wormyView.update(-10, 0);
-                break; //Left
-            case KeyEvent.KEYCODE_P:
-                wormyView.update(+10, 0);
-                break; //Right
+    public void onResume() {
+        super.onResume();
+        // Connect the sensor's listener to the view
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if (sensor != null) {
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI);
         }
-        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public void onPause() {
+        // Nicely disconnect the sensor's listener from the view
+        sensorManager.unregisterListener(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        float ax = sensorEvent.values[0];
+        float ay = sensorEvent.values[1];
+        wormyView.update(-ax, ay);
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
     @Override
