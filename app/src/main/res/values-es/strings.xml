@@ -19,4 +19,6 @@
     <string name="registerExplanationText">Write your mail and send it to us. Soo we can send you your verification code to be registered in our app.</string>
     <string name="veriCode">Codigo</string>
     <string name="veriCodeExplanationText">Porfavor, introduzca el codigo que ha sido enviado a su correo electronico.</string>
+    <string name="btnNewGame">Nueva partida</string>
+    <string name="you_lost">Has perdido</string>
 </resources>
