@@ -59,7 +59,7 @@ public class actJugar extends AppCompatActivity implements wormyView.WormyListen
     public void onSensorChanged(SensorEvent sensorEvent) {
         float ax = sensorEvent.values[0];
         float ay = sensorEvent.values[1];
-        wormyView.update(-ax, ay);
+        wormyView.update(ax/2, ay/2);
     }
 
     @Override
