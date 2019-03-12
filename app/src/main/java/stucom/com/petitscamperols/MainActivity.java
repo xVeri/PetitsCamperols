@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
      * Al crearse carga todos los botones del menu ademas de cargar el jugador y
      * comprobar si esta registrado.
      *
-     * @param savedInstanceState
+     * @param savedInstanceState something
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,13 @@ public class MainActivity extends AppCompatActivity {
         btnJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent actJugar = new Intent(MainActivity.this, actJugar.class);
-                startActivity(actJugar);
+                if(registred) {
+                    Intent actRegistre = new Intent(MainActivity.this, act_registre.class);
+                    startActivity(actRegistre);
+                } else {
+                    Intent actJugar = new Intent(MainActivity.this, actJugar.class);
+                    startActivity(actJugar);
+                }
             }
         });
 
