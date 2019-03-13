@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,13 +35,16 @@ public class actJugar extends AppCompatActivity implements wormyView.WormyListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_act_jugar);
 
-        wormyView = findViewById(R.id.wormyView);           //TODO
-        Button btnNewGame = findViewById(R.id.btnNewGame);
+        final Button btnNewGame = findViewById(R.id.btnNewGame);
+        final ImageView pauseBg = findViewById(R.id.pauseBg);
+        wormyView = findViewById(R.id.wormyView);
         tvScore = findViewById(R.id.tvScore);
         btnNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 tvScore.setText("0");
+                btnNewGame.setVisibility(View.GONE);
+                pauseBg.setVisibility(View.GONE);
                 wormyView.newGame();
             }
         });
@@ -85,6 +89,10 @@ public class actJugar extends AppCompatActivity implements wormyView.WormyListen
     @Override
     public void gameLost(View view) {
         Toast.makeText(this, getString(R.string.you_lost), Toast.LENGTH_LONG).show();
+        final Button btnNewGame = findViewById(R.id.btnNewGame);
+        final ImageView pauseBg = findViewById(R.id.pauseBg);
+        pauseBg.setVisibility(View.VISIBLE);
+        btnNewGame.setVisibility(View.VISIBLE);
 
         String url = "https://api.flx.cat/dam2game/user/score";
         RequestQueue queue = Volley.newRequestQueue(this.getApplicationContext());

@@ -201,7 +201,6 @@ public class wormyView extends View {
                     playing = false;
                     if (listener != null) listener.gameLost(this);
 
-                    //TODO Implement API punctuation, score in tvScore, level 0
                     //TODO Implement stop background music
                     //TODO Implement whenPlayerDie sound
                     //TODO Implement 3 lives system, isolate code inside this
