@@ -203,7 +203,6 @@ public class wormyView extends View {
 
                     //TODO Implement stop background music
                     //TODO Implement whenPlayerDie sound
-                    //TODO Implement 3 lives system, isolate code inside this
                 }
             }
         }
