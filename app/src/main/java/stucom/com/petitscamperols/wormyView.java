@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.hardware.SensorEventListener;
+import android.media.MediaPlayer;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -20,6 +21,8 @@ public class wormyView extends View {
     private char map[];
     private Paint paint;
     private Bitmap tiles, wormLeft, wormRight, worm;
+    public MediaPlayer coinSound, deathSound, music;
+    public boolean state = false;
 
     public wormyView(Context context) { this(context, null, 0); }
     public wormyView(Context context, AttributeSet attrs) { this(context, attrs, 0); }
@@ -33,6 +36,11 @@ public class wormyView extends View {
         wormLeft = BitmapFactory.decodeResource(getResources(), R.drawable.worm_left);
         wormRight = BitmapFactory.decodeResource(getResources(), R.drawable.worm_right);
         worm = wormLeft;
+        coinSound = MediaPlayer.create(context, R.raw.coin1);
+        deathSound = MediaPlayer.create(context, R.raw.death);
+        music = MediaPlayer.create(context, R.raw.music);
+        music.setLooping(true);
+
     }
 
     @Override public void onMeasure(int specW, int specH) {
@@ -55,6 +63,8 @@ public class wormyView extends View {
     }
 
     public void newGame() {
+        state = false;
+        music.start();
         slowdown = SLOW_DOWN;   //TODO Start background music
         score = 0;
         playing = true;
@@ -184,8 +194,10 @@ public class wormyView extends View {
                 wormX = newX;
                 wormY = newY;
                 if ((map[idx] >= 'C') && (map[idx] <= 'G')) {
+
+
                     // Coin collected!
-                    //TODO Implement sound coin collected
+                    coinSound.start();
                     score += 10;
                     map[idx] = ' ';
                     numCoins--;
@@ -202,7 +214,9 @@ public class wormyView extends View {
                     if (listener != null) listener.gameLost(this);
 
                     //TODO Implement stop background music
-                    //TODO Implement whenPlayerDie sound
+                    music.pause();
+                    state = true;
+                    deathSound.start();
                 }
             }
         }
@@ -218,4 +232,5 @@ public class wormyView extends View {
     public void setWormyListener(WormyListener listener) {
         this.listener = listener;
     }
+
 }

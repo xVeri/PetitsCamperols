@@ -56,6 +56,9 @@ public class actJugar extends AppCompatActivity implements wormyView.WormyListen
     @Override
     public void onResume() {
         super.onResume();
+        if(wormyView.state == false) {
+            wormyView.music.start();
+        }
         // Connect the sensor's listener to the view
         Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         if (sensor != null) {
@@ -67,6 +70,7 @@ public class actJugar extends AppCompatActivity implements wormyView.WormyListen
     public void onPause() {
         // Nicely disconnect the sensor's listener from the view
         sensorManager.unregisterListener(this);
+        wormyView.music.pause();
         super.onPause();
     }
 
