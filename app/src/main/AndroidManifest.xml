@@ -47,6 +47,7 @@
 
         <activity android:name=".act_registre" />
         <activity android:name=".act_registre2" />
+        <activity android:name=".actBonk" />
     </application>
 
 </manifest>

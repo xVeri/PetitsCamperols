@@ -21,4 +21,5 @@
     <string name="veriCodeExplanationText">Siusplau, introdueixí el codí que ha sigut enviat al seu correu electronic.</string>
     <string name="btnNewGame">Nova partida</string>
     <string name="you_lost">Has perdut</string>
+    <string name="bonk">Jugar Bonk</string>
 </resources>

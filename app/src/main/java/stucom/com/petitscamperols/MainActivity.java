@@ -84,6 +84,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(actQuant);
             }
         });
+
+        Button btnBonk = findViewById(R.id.btnBonk);
+        btnBonk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(registred){
+                    Intent actBonk = new Intent(MainActivity.this, actBonk.class);
+                    startActivity(actBonk);
+                }else{
+                    Intent actAjust = new Intent(MainActivity.this, actAjust.class);
+                    startActivity(actAjust);
+                }
+            }
+        });
     }
 
     /**
