@@ -9,5 +9,5 @@ public interface ApiFlxService {
 
     @POST("1/2")
     @FormUrlEncoded
-    Call<Void> scoreUpdate(@Field("key") String key, @Field("score") int score);
+    Call<Void> scoreUpdate(@Field("token") String token, @Field("score") int score);
 }

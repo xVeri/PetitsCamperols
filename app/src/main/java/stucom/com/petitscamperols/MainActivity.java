@@ -1,6 +1,5 @@
 package stucom.com.petitscamperols;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -90,11 +89,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(registred){
+                    Intent actRegistre = new Intent( MainActivity.this, act_registre.class );
+                    startActivity(actRegistre);
+                }else{
                     Intent actBonk = new Intent(MainActivity.this, actBonk.class);
                     startActivity(actBonk);
-                }else{
-                    Intent actAjust = new Intent(MainActivity.this, actAjust.class);
-                    startActivity(actAjust);
                 }
             }
         });
